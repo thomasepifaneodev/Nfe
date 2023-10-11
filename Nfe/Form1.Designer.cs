@@ -29,34 +29,97 @@
         private void InitializeComponent()
         {
             button1 = new Button();
-            listBox1 = new ListBox();
+            listView1 = new ListView();
+            numero = new ColumnHeader();
+            serie = new ColumnHeader();
+            modelo = new ColumnHeader();
+            chave = new ColumnHeader();
+            listView2 = new ListView();
+            codprod = new ColumnHeader();
+            descricao = new ColumnHeader();
+            ncm = new ColumnHeader();
+            vicms = new ColumnHeader();
+            cst = new ColumnHeader();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(692, 112);
+            button1.Location = new Point(832, 12);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 0;
-            button1.Text = "button1";
+            button1.Text = "Importar";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // listBox1
+            // listView1
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(12, 12);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(1425, 94);
-            listBox1.TabIndex = 1;
+            listView1.Columns.AddRange(new ColumnHeader[] { numero, serie, modelo, chave });
+            listView1.Location = new Point(12, 60);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(806, 188);
+            listView1.TabIndex = 1;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.View = View.Details;
+            // 
+            // numero
+            // 
+            numero.Text = "Número";
+            numero.Width = 75;
+            // 
+            // serie
+            // 
+            serie.Text = "Serie";
+            // 
+            // modelo
+            // 
+            modelo.Text = "Modelo";
+            // 
+            // chave
+            // 
+            chave.Text = "Chave";
+            chave.Width = 230;
+            // 
+            // listView2
+            // 
+            listView2.Columns.AddRange(new ColumnHeader[] { codprod, descricao, ncm, vicms, cst });
+            listView2.Location = new Point(12, 254);
+            listView2.Name = "listView2";
+            listView2.Size = new Size(806, 188);
+            listView2.TabIndex = 2;
+            listView2.UseCompatibleStateImageBehavior = false;
+            listView2.View = View.Details;
+            // 
+            // codprod
+            // 
+            codprod.Text = "Código";
+            codprod.Width = 75;
+            // 
+            // descricao
+            // 
+            descricao.Text = "Descrição";
+            descricao.Width = 150;
+            // 
+            // ncm
+            // 
+            ncm.Text = "NCM";
+            // 
+            // vicms
+            // 
+            vicms.Text = "Valor ICMS";
+            vicms.Width = 90;
+            // 
+            // cst
+            // 
+            cst.Text = "CST";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1449, 451);
-            Controls.Add(listBox1);
+            ClientSize = new Size(919, 451);
+            Controls.Add(listView2);
+            Controls.Add(listView1);
             Controls.Add(button1);
             Name = "Form1";
             Text = "Form1";
@@ -66,6 +129,16 @@
         #endregion
 
         private Button button1;
-        private ListBox listBox1;
+        private ListView listView1;
+        private ColumnHeader numero;
+        private ColumnHeader serie;
+        private ColumnHeader modelo;
+        private ColumnHeader chave;
+        private ListView listView2;
+        private ColumnHeader codprod;
+        private ColumnHeader descricao;
+        private ColumnHeader ncm;
+        private ColumnHeader vicms;
+        private ColumnHeader cst;
     }
 }

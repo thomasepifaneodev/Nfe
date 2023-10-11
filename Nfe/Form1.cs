@@ -1,35 +1,17 @@
 using System.Xml.Serialization;
 using System.Xml;
 using Npgsql;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Runtime.Intrinsics.Arm;
-using System;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+
 
 namespace Nfe
 {
-    public class XmlReaderTeste
-    {
-        public int Numero { get; set; }
-        public int Serie { get; set; }
-        public int Modelo { get; set; }
-        public string? Chave { get; set; }
-        public string? Codproduto { get; set; }
-        public int Ordem { get; set; }
-        public string? Descricaoitem { get; set; }
-        public string? Ncm { get; set; }
-        public int Cst { get; set; }
-        public decimal Valortotal { get; set; }
-        public decimal Valoricms { get; set; }
-    }
     public partial class Form1 : Form
     {
+        List<XmlReaderTeste> xmlReaderTestes = new List<XmlReaderTeste>();
         public Form1()
         {
             InitializeComponent();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -76,7 +58,6 @@ namespace Nfe
                     int codCST = 90;
                     int ordemID = item.nItem;
                     string CodProd = item.prod.cProd;
-
                     // Verificar se o ICMS está presente e acessar o valor
                     if (item.imposto.ICMS != null)
                     {
@@ -99,23 +80,24 @@ namespace Nfe
                             codCST = item.imposto.ICMS.ICMS60.CST;
                         }
                         // Adicione mais condições conforme necessário para outros tipos de ICMS
+                        //}
+
+                        listView1.Items.Add(new ListViewItem(new[] { Numero.ToString(), Serie.ToString(), Modelo.ToString(), Chave }));
+
+
+                        // Montar uma string com as informações do item e dos impostos
+                        string itemInfo = $"Item: {ordemID} - Chave {Chave} - {Descricao} - NCM: {NCM} - Total: R${valorTotal} - CST {codCST} - ICMS: R${valorICMS}";
+                        // Adicionar a string à ListBox                                        
+                        NpgsqlConnection connect = new NpgsqlConnection();
+                        string connection1 = $"Server=127.0.0.1; Port=5432; Database=testenfe; User Id=postgres; Password=postzeus2011";
+                        connect.ConnectionString = connection1;
+                        connect.Open();
+                        string sql1 = $"INSERT INTO public.nfexml(numero, serie, modelo, chave, codproduto, ordem, descricaoitem, ncm, cst, valortotal, valoricms) " +
+                            $"VALUES({Numero}, {Serie}, {Modelo}, '{Chave}', '{CodProd}', {ordemID}, '{Descricao}', '{NCM}', {codCST}, REPLACE('{valorTotal.ToString()}',',','.')::numeric, REPLACE('{valorICMS.ToString()}',',','.')::numeric);";
+                        NpgsqlCommand cmd1 = new NpgsqlCommand(sql1, connect);
+                        cmd1.ExecuteNonQuery();
+                        connect.Close();
                     }
-
-                    // Montar uma string com as informações do item e dos impostos
-                    string itemInfo = $"Item: {ordemID} - Chave {Chave} - {Descricao} - NCM: {NCM} - Total: R${valorTotal} - CST {codCST} - ICMS: R${valorICMS}";
-
-                    // Adicionar a string à ListBox
-                    listBox1.Items.Add(itemInfo);
-                    //InsertXML(Numero, Serie, Modelo, Chave, CodProd, ordemID, Descricao, NCM, codCST, valorTotal, valorICMS);
-                    NpgsqlConnection connect = new NpgsqlConnection();
-                    string connection = $"Server=127.0.0.1; Port=5432; Database=testenfe; User Id=postgres; Password=postzeus2011";
-                    connect.ConnectionString = connection;
-                    connect.Open();
-                    string sql = $"INSERT INTO public.nfexml(numero, serie, modelo, chave, codproduto, ordem, descricaoitem, ncm, cst, valortotal, valoricms) " +
-                        $"VALUES({Numero}, {Serie}, {Modelo}, '{Chave}', '{CodProd}', {ordemID}, '{Descricao}', '{NCM}', {codCST}, REPLACE('{valorTotal.ToString()}',',','.')::numeric, REPLACE('{valorICMS.ToString()}',',','.')::numeric);";
-                    NpgsqlCommand cmd = new NpgsqlCommand(sql, connect);
-                    cmd.ExecuteNonQuery();
-                    connect.Close();
                 }
             }
             catch (Exception ex)
