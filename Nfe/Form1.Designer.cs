@@ -40,6 +40,7 @@
             ncm = new ColumnHeader();
             vicms = new ColumnHeader();
             cst = new ColumnHeader();
+            button2 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -57,7 +58,7 @@
             listView1.Columns.AddRange(new ColumnHeader[] { numero, serie, modelo, chave });
             listView1.Location = new Point(12, 60);
             listView1.Name = "listView1";
-            listView1.Size = new Size(806, 188);
+            listView1.Size = new Size(499, 188);
             listView1.TabIndex = 1;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
@@ -78,14 +79,14 @@
             // chave
             // 
             chave.Text = "Chave";
-            chave.Width = 230;
+            chave.Width = 300;
             // 
             // listView2
             // 
             listView2.Columns.AddRange(new ColumnHeader[] { codprod, descricao, ncm, vicms, cst });
             listView2.Location = new Point(12, 254);
             listView2.Name = "listView2";
-            listView2.Size = new Size(806, 188);
+            listView2.Size = new Size(499, 188);
             listView2.TabIndex = 2;
             listView2.UseCompatibleStateImageBehavior = false;
             listView2.View = View.Details;
@@ -98,7 +99,7 @@
             // descricao
             // 
             descricao.Text = "Descrição";
-            descricao.Width = 150;
+            descricao.Width = 210;
             // 
             // ncm
             // 
@@ -113,11 +114,22 @@
             // 
             cst.Text = "CST";
             // 
+            // button2
+            // 
+            button2.Location = new Point(832, 416);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 3;
+            button2.Text = "Checar";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(919, 451);
+            Controls.Add(button2);
             Controls.Add(listView2);
             Controls.Add(listView1);
             Controls.Add(button1);
@@ -140,5 +152,6 @@
         private ColumnHeader ncm;
         private ColumnHeader vicms;
         private ColumnHeader cst;
+        private Button button2;
     }
 }

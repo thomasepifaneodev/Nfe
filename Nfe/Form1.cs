@@ -1,6 +1,8 @@
 using System.Xml.Serialization;
 using System.Xml;
 using Npgsql;
+using System.Reflection;
+using System;
 
 
 namespace Nfe
@@ -26,8 +28,8 @@ namespace Nfe
                     {
                         ProcessarArquivoXML(arquivoXML);
                     }
+                    MessageBox.Show("Dados inseridos com sucesso!");
                 }
-                MessageBox.Show("Dados inseridos com sucesso!");
             }
             catch (Exception ex)
             {
@@ -79,15 +81,6 @@ namespace Nfe
                         {
                             codCST = item.imposto.ICMS.ICMS60.CST;
                         }
-                        // Adicione mais condições conforme necessário para outros tipos de ICMS
-                        //}
-
-                        listView1.Items.Add(new ListViewItem(new[] { Numero.ToString(), Serie.ToString(), Modelo.ToString(), Chave }));
-
-
-                        // Montar uma string com as informações do item e dos impostos
-                        string itemInfo = $"Item: {ordemID} - Chave {Chave} - {Descricao} - NCM: {NCM} - Total: R${valorTotal} - CST {codCST} - ICMS: R${valorICMS}";
-                        // Adicionar a string à ListBox                                        
                         NpgsqlConnection connect = new NpgsqlConnection();
                         string connection1 = $"Server=127.0.0.1; Port=5432; Database=testenfe; User Id=postgres; Password=postzeus2011";
                         connect.ConnectionString = connection1;
@@ -104,6 +97,61 @@ namespace Nfe
             {
                 MessageBox.Show("Erro na desserialização do XML: " + ex.Message);
             }
+        }
+        private void ExecutarNotas()
+        {
+            NpgsqlConnection connect = new NpgsqlConnection();
+            string connection = $"Server=127.0.0.1; Port=5432; Database=testenfe; User Id=postgres; Password=postzeus2011";
+            connect.ConnectionString = connection;
+            connect.Open();
+            string sql1 = $"SELECT DISTINCT ON (chave) numero, serie, modelo, chave FROM nfexml;";
+            NpgsqlCommand cmd = new NpgsqlCommand(sql1, connect);
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                XmlReaderTeste xmlReaderTeste = new XmlReaderTeste
+                {
+                    LNumero = reader.GetInt32(0),
+                    LModelo = reader.GetInt32(1),
+                    LSerie = reader.GetInt32(2),
+                    LChave = reader.GetString(3)
+
+                };
+                xmlReaderTestes.Add(xmlReaderTeste);
+                listView1.Items.Add(new ListViewItem(new[] { xmlReaderTeste.LNumero.ToString(), xmlReaderTeste.LModelo.ToString(), xmlReaderTeste.LSerie.ToString(), xmlReaderTeste.LChave }));
+            }
+            reader.Close();
+            connect.Close();
+        }
+        private void ExecutarProdutos()
+        {
+            NpgsqlConnection connect = new NpgsqlConnection();
+            string connection = $"Server=127.0.0.1; Port=5432; Database=testenfe; User Id=postgres; Password=postzeus2011";
+            connect.ConnectionString = connection;
+            connect.Open();
+            string sql1 = $"SELECT DISTINCT ON (chave) numero, serie, modelo, chave FROM nfexml;";
+            NpgsqlCommand cmd = new NpgsqlCommand(sql1, connect);
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                XmlReaderTeste xmlReaderTeste = new XmlReaderTeste
+                {
+                    LNumero = reader.GetInt32(0),
+                    LModelo = reader.GetInt32(1),
+                    LSerie = reader.GetInt32(2),
+                    LChave = reader.GetString(3)
+
+                };
+                xmlReaderTestes.Add(xmlReaderTeste);
+                listView1.Items.Add(new ListViewItem(new[] { xmlReaderTeste.LNumero.ToString(), xmlReaderTeste.LModelo.ToString(), xmlReaderTeste.LSerie.ToString(), xmlReaderTeste.LChave }));
+            }
+            reader.Close();
+            connect.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ExecutarNotas();
         }
     }
 }
