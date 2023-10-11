@@ -280,7 +280,7 @@ namespace Nfe
 
         private byte serieField;
 
-        private uint nNFField;
+        private int nNFField;
 
         private System.DateTime dhEmiField;
 
@@ -374,7 +374,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public uint nNF
+        public int nNF
         {
             get
             {
@@ -663,7 +663,7 @@ namespace Nfe
 
         private string xLgrField;
 
-        private byte nroField;
+        private string nroField;
 
         private string xCplField;
 
@@ -697,7 +697,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte nro
+        public string nro
         {
             get
             {
@@ -838,7 +838,7 @@ namespace Nfe
 
         private nfeProcNFeInfNFeDetImposto impostoField;
 
-        private byte nItemField;
+        private int nItemField;
 
         /// <remarks/>
         public nfeProcNFeInfNFeDetProd prod
@@ -868,7 +868,7 @@ namespace Nfe
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte nItem
+        public int nItem
         {
             get
             {
@@ -888,13 +888,13 @@ namespace Nfe
     public partial class nfeProcNFeInfNFeDetProd
     {
 
-        private uint cProdField;
+        private string cProdField;
 
-        private ulong cEANField;
+        private string cEANField;
 
         private string xProdField;
 
-        private uint nCMField;
+        private string nCMField;
 
         private uint cESTField;
 
@@ -910,7 +910,7 @@ namespace Nfe
 
         private decimal vProdField;
 
-        private ulong cEANTribField;
+        private string cEANTribField;
 
         private string uTribField;
 
@@ -921,7 +921,7 @@ namespace Nfe
         private byte indTotField;
 
         /// <remarks/>
-        public uint cProd
+        public string cProd
         {
             get
             {
@@ -934,7 +934,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public ulong cEAN
+        public string cEAN
         {
             get
             {
@@ -960,7 +960,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public uint NCM
+        public string NCM
         {
             get
             {
@@ -1065,7 +1065,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public ulong cEANTrib
+        public string cEANTrib
         {
             get
             {
