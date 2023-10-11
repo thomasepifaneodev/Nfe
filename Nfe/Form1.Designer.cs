@@ -45,7 +45,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(832, 12);
+            button1.Location = new Point(525, 12);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 0;
@@ -55,7 +55,11 @@
             // 
             // listView1
             // 
+            listView1.AutoArrange = false;
             listView1.Columns.AddRange(new ColumnHeader[] { numero, serie, modelo, chave });
+            listView1.GridLines = true;
+            listView1.HideSelection = true;
+            listView1.HoverSelection = true;
             listView1.Location = new Point(12, 60);
             listView1.Name = "listView1";
             listView1.Size = new Size(499, 188);
@@ -116,7 +120,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(832, 416);
+            button2.Location = new Point(525, 416);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 3;
@@ -128,7 +132,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(919, 451);
+            ClientSize = new Size(610, 451);
             Controls.Add(button2);
             Controls.Add(listView2);
             Controls.Add(listView1);
