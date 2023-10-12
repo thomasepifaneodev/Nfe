@@ -270,46 +270,46 @@ namespace Nfe
     public partial class nfeProcNFeInfNFeIde
     {
 
-        private byte cUFField;
+        private int cUFField;
 
         private uint cNFField;
 
         private string natOpField;
 
-        private byte modField;
+        private int modField;
 
-        private byte serieField;
+        private int serieField;
 
         private int nNFField;
 
         private System.DateTime dhEmiField;
 
-        private byte tpNFField;
+        private int tpNFField;
 
-        private byte idDestField;
+        private int idDestField;
 
         private uint cMunFGField;
 
-        private byte tpImpField;
+        private int tpImpField;
 
-        private byte tpEmisField;
+        private int tpEmisField;
 
-        private byte cDVField;
+        private int cDVField;
 
-        private byte tpAmbField;
+        private int tpAmbField;
 
-        private byte finNFeField;
+        private int finNFeField;
 
-        private byte indFinalField;
+        private int indFinalField;
 
-        private byte indPresField;
+        private int indPresField;
 
-        private byte procEmiField;
+        private int procEmiField;
 
         private string verProcField;
 
         /// <remarks/>
-        public byte cUF
+        public int cUF
         {
             get
             {
@@ -348,7 +348,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte mod
+        public int mod
         {
             get
             {
@@ -361,7 +361,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte serie
+        public int serie
         {
             get
             {
@@ -400,7 +400,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte tpNF
+        public int tpNF
         {
             get
             {
@@ -413,7 +413,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte idDest
+        public int idDest
         {
             get
             {
@@ -439,7 +439,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte tpImp
+        public int tpImp
         {
             get
             {
@@ -452,7 +452,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte tpEmis
+        public int tpEmis
         {
             get
             {
@@ -465,7 +465,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte cDV
+        public int cDV
         {
             get
             {
@@ -478,7 +478,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte tpAmb
+        public int tpAmb
         {
             get
             {
@@ -491,7 +491,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte finNFe
+        public int finNFe
         {
             get
             {
@@ -504,7 +504,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte indFinal
+        public int indFinal
         {
             get
             {
@@ -517,7 +517,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte indPres
+        public int indPres
         {
             get
             {
@@ -530,7 +530,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte procEmi
+        public int procEmi
         {
             get
             {
@@ -571,9 +571,9 @@ namespace Nfe
 
         private nfeProcNFeInfNFeEmitEnderEmit enderEmitField;
 
-        private uint ieField;
+        private string ieField;
 
-        private byte cRTField;
+        private int cRTField;
 
         /// <remarks/>
         public ulong CNPJ
@@ -628,7 +628,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public uint IE
+        public string IE
         {
             get
             {
@@ -641,7 +641,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte CRT
+        public int CRT
         {
             get
             {
@@ -918,7 +918,7 @@ namespace Nfe
 
         private decimal vUnTribField;
 
-        private byte indTotField;
+        private int indTotField;
 
         /// <remarks/>
         public string cProd
@@ -1117,7 +1117,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte indTot
+        public int indTot
         {
             get
             {
@@ -1270,11 +1270,11 @@ namespace Nfe
     public partial class nfeProcNFeInfNFeDetImpostoICMSICMS00
     {
 
-        private byte origField;
+        private int origField;
 
-        private byte cSTField;
+        private int cSTField;
 
-        private byte modBCField;
+        private int modBCField;
 
         private decimal vBCField;
 
@@ -1287,7 +1287,7 @@ namespace Nfe
         private decimal vFCPField;
 
         /// <remarks/>
-        public byte orig
+        public int orig
         {
             get
             {
@@ -1300,7 +1300,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte CST
+        public int CST
         {
             get
             {
@@ -1313,7 +1313,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte modBC
+        public int modBC
         {
             get
             {
@@ -1397,11 +1397,11 @@ namespace Nfe
     public partial class nfeProcNFeInfNFeDetImpostoICMSICMS10
     {
 
-        private byte origField;
+        private int origField;
 
-        private byte cSTField;
+        private int cSTField;
 
-        private byte modBCField;
+        private int modBCField;
 
         private decimal vBCField;
 
@@ -1414,7 +1414,7 @@ namespace Nfe
         private decimal vFCPField;
 
         /// <remarks/>
-        public byte orig
+        public int orig
         {
             get
             {
@@ -1427,7 +1427,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte CST
+        public int CST
         {
             get
             {
@@ -1440,7 +1440,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte modBC
+        public int modBC
         {
             get
             {
@@ -1525,12 +1525,12 @@ namespace Nfe
     public partial class nfeProcNFeInfNFeDetImpostoICMSICMS60
     {
 
-        private byte origField;
+        private int origField;
 
-        private byte cSTField;
+        private int cSTField;
 
         /// <remarks/>
-        public byte orig
+        public int orig
         {
             get
             {
@@ -1543,7 +1543,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte CST
+        public int CST
         {
             get
             {
@@ -1562,12 +1562,12 @@ namespace Nfe
     public partial class nfeProcNFeInfNFeDetImpostoICMSICMS40
     {
 
-        private byte origField;
+        private int origField;
 
-        private byte cSTField;
+        private int cSTField;
 
         /// <remarks/>
-        public byte orig
+        public int orig
         {
             get
             {
@@ -1580,7 +1580,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte CST
+        public int CST
         {
             get
             {
@@ -1638,7 +1638,7 @@ namespace Nfe
     public partial class nfeProcNFeInfNFeDetImpostoPISPISAliq
     {
 
-        private byte cSTField;
+        private int cSTField;
 
         private decimal vBCField;
 
@@ -1647,7 +1647,7 @@ namespace Nfe
         private decimal vPISField;
 
         /// <remarks/>
-        public byte CST
+        public int CST
         {
             get
             {
@@ -1706,10 +1706,10 @@ namespace Nfe
     public partial class nfeProcNFeInfNFeDetImpostoPISPISNT
     {
 
-        private byte cSTField;
+        private int cSTField;
 
         /// <remarks/>
-        public byte CST
+        public int CST
         {
             get
             {
@@ -1767,7 +1767,7 @@ namespace Nfe
     public partial class nfeProcNFeInfNFeDetImpostoCOFINSCOFINSAliq
     {
 
-        private byte cSTField;
+        private int cSTField;
 
         private decimal vBCField;
 
@@ -1776,7 +1776,7 @@ namespace Nfe
         private decimal vCOFINSField;
 
         /// <remarks/>
-        public byte CST
+        public int CST
         {
             get
             {
@@ -1835,10 +1835,10 @@ namespace Nfe
     public partial class nfeProcNFeInfNFeDetImpostoCOFINSCOFINSNT
     {
 
-        private byte cSTField;
+        private int cSTField;
 
         /// <remarks/>
-        public byte CST
+        public int CST
         {
             get
             {
@@ -2189,10 +2189,10 @@ namespace Nfe
     public partial class nfeProcNFeInfNFeTransp
     {
 
-        private byte modFreteField;
+        private int modFreteField;
 
         /// <remarks/>
-        public byte modFrete
+        public int modFrete
         {
             get
             {
@@ -2250,14 +2250,14 @@ namespace Nfe
     public partial class nfeProcNFeInfNFePagDetPag
     {
 
-        private byte indPagField;
+        private int indPagField;
 
-        private byte tPagField;
+        private int tPagField;
 
         private decimal vPagField;
 
         /// <remarks/>
-        public byte indPag
+        public int indPag
         {
             get
             {
@@ -2270,7 +2270,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte tPag
+        public int tPag
         {
             get
             {
@@ -2722,7 +2722,7 @@ namespace Nfe
     public partial class nfeProcProtNFeInfProt
     {
 
-        private byte tpAmbField;
+        private int tpAmbField;
 
         private string verAplicField;
 
@@ -2734,12 +2734,12 @@ namespace Nfe
 
         private string digValField;
 
-        private byte cStatField;
+        private int cStatField;
 
         private string xMotivoField;
 
         /// <remarks/>
-        public byte tpAmb
+        public int tpAmb
         {
             get
             {
@@ -2818,7 +2818,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte cStat
+        public int cStat
         {
             get
             {

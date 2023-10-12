@@ -10,6 +10,8 @@ namespace Nfe
     public partial class Form1 : Form
     {
         List<XmlReaderTeste> xmlReaderTestes = new List<XmlReaderTeste>();
+        List<ProdutosXML> xmlReaderProds = new List<ProdutosXML>();
+
         public Form1()
         {
             InitializeComponent();
@@ -28,7 +30,8 @@ namespace Nfe
                     {
                         ProcessarArquivoXML(arquivoXML);
                     }
-                    MessageBox.Show("Dados inseridos com sucesso!");
+                    //MessageBox.Show("Dados inseridos com sucesso!");
+                    MessageBox.Show("OK!");
                 }
             }
             catch (Exception ex)
@@ -118,40 +121,54 @@ namespace Nfe
 
                 };
                 xmlReaderTestes.Add(xmlReaderTeste);
-                listView1.Items.Add(new ListViewItem(new[] { xmlReaderTeste.LNumero.ToString(), xmlReaderTeste.LModelo.ToString(), xmlReaderTeste.LSerie.ToString(), xmlReaderTeste.LChave }));
+                dataGridNotas.Rows.Add(xmlReaderTeste.LNumero, xmlReaderTeste.LModelo, xmlReaderTeste.LSerie, xmlReaderTeste.LChave);
             }
             reader.Close();
             connect.Close();
         }
-        private void ExecutarProdutos()
-        {
-            NpgsqlConnection connect = new NpgsqlConnection();
-            string connection = $"Server=127.0.0.1; Port=5432; Database=testenfe; User Id=postgres; Password=postzeus2011";
-            connect.ConnectionString = connection;
-            connect.Open();
-            string sql1 = $"SELECT DISTINCT ON (chave) numero, serie, modelo, chave FROM nfexml;";
-            NpgsqlCommand cmd = new NpgsqlCommand(sql1, connect);
-            NpgsqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                XmlReaderTeste xmlReaderTeste = new XmlReaderTeste
-                {
-                    LNumero = reader.GetInt32(0),
-                    LModelo = reader.GetInt32(1),
-                    LSerie = reader.GetInt32(2),
-                    LChave = reader.GetString(3)
-
-                };
-                xmlReaderTestes.Add(xmlReaderTeste);
-                listView1.Items.Add(new ListViewItem(new[] { xmlReaderTeste.LNumero.ToString(), xmlReaderTeste.LModelo.ToString(), xmlReaderTeste.LSerie.ToString(), xmlReaderTeste.LChave }));
-            }
-            reader.Close();
-            connect.Close();
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             ExecutarNotas();
+        }
+        private void dataGridNotas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                //Limpa o segundo DataGridView antes de adicionar os novos produtos
+                dataGridProdXML.Rows.Clear();
+
+                // Obtém a chave da linha clicada
+                string chaveSelecionada = dataGridNotas.Rows[e.RowIndex].Cells["chaveDgv"].Value.ToString();
+
+                NpgsqlConnection connect = new NpgsqlConnection();
+                string connection = "Server=127.0.0.1; Port=5432; Database=testenfe; User Id=postgres; Password=postzeus2011";
+                connect.ConnectionString = connection;
+                connect.Open();
+
+                // Use a chaveSelecionada na consulta SQL
+                string sql = $"SELECT DISTINCT chave, ordem, codproduto, descricaoitem, ncm, cst, valoricms FROM nfexml WHERE chave = '{chaveSelecionada}' ORDER BY ordem;";
+                NpgsqlCommand cmd = new NpgsqlCommand(sql, connect);
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ProdutosXML xmlReaderProd = new ProdutosXML
+                    {
+                        ChaveXML = reader.GetString(0),
+                        Ordem = reader.GetInt32(1),
+                        Codproduto = reader.GetString(2),
+                        Descricaoitem = reader.GetString(3),
+                        Ncm = reader.GetString(4),
+                        Cst = reader.GetInt32(5).ToString(),
+                        Valoricms = reader.GetDecimal(6)
+                    };
+                    xmlReaderProds.Add(xmlReaderProd);
+                    dataGridProdXML.Rows.Add(xmlReaderProd.Codproduto, xmlReaderProd.Descricaoitem, xmlReaderProd.Ncm, xmlReaderProd.Cst, xmlReaderProd.Valoricms);
+                }
+
+                reader.Close();
+                connect.Close();
+            }
         }
     }
 }

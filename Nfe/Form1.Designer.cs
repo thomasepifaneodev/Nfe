@@ -29,23 +29,25 @@
         private void InitializeComponent()
         {
             button1 = new Button();
-            listView1 = new ListView();
-            numero = new ColumnHeader();
-            serie = new ColumnHeader();
-            modelo = new ColumnHeader();
-            chave = new ColumnHeader();
-            listView2 = new ListView();
-            codprod = new ColumnHeader();
-            descricao = new ColumnHeader();
-            ncm = new ColumnHeader();
-            vicms = new ColumnHeader();
-            cst = new ColumnHeader();
             button2 = new Button();
+            dataGridNotas = new DataGridView();
+            numeroDgv = new DataGridViewTextBoxColumn();
+            serieDgv = new DataGridViewTextBoxColumn();
+            modeloDgv = new DataGridViewTextBoxColumn();
+            chaveDgv = new DataGridViewTextBoxColumn();
+            dataGridProdXML = new DataGridView();
+            codigoDgvXML = new DataGridViewTextBoxColumn();
+            descricaoDgvXML = new DataGridViewTextBoxColumn();
+            ncmDgvXML = new DataGridViewTextBoxColumn();
+            cstDgvXML = new DataGridViewTextBoxColumn();
+            vlIcmsDgvXML = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dataGridNotas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridProdXML).BeginInit();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(525, 12);
+            button1.Location = new Point(1087, 12);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 0;
@@ -53,74 +55,9 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // listView1
-            // 
-            listView1.AutoArrange = false;
-            listView1.Columns.AddRange(new ColumnHeader[] { numero, serie, modelo, chave });
-            listView1.GridLines = true;
-            listView1.HideSelection = true;
-            listView1.HoverSelection = true;
-            listView1.Location = new Point(12, 60);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(499, 188);
-            listView1.TabIndex = 1;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
-            // 
-            // numero
-            // 
-            numero.Text = "Número";
-            numero.Width = 75;
-            // 
-            // serie
-            // 
-            serie.Text = "Serie";
-            // 
-            // modelo
-            // 
-            modelo.Text = "Modelo";
-            // 
-            // chave
-            // 
-            chave.Text = "Chave";
-            chave.Width = 300;
-            // 
-            // listView2
-            // 
-            listView2.Columns.AddRange(new ColumnHeader[] { codprod, descricao, ncm, vicms, cst });
-            listView2.Location = new Point(12, 254);
-            listView2.Name = "listView2";
-            listView2.Size = new Size(499, 188);
-            listView2.TabIndex = 2;
-            listView2.UseCompatibleStateImageBehavior = false;
-            listView2.View = View.Details;
-            // 
-            // codprod
-            // 
-            codprod.Text = "Código";
-            codprod.Width = 75;
-            // 
-            // descricao
-            // 
-            descricao.Text = "Descrição";
-            descricao.Width = 210;
-            // 
-            // ncm
-            // 
-            ncm.Text = "NCM";
-            // 
-            // vicms
-            // 
-            vicms.Text = "Valor ICMS";
-            vicms.Width = 90;
-            // 
-            // cst
-            // 
-            cst.Text = "CST";
-            // 
             // button2
             // 
-            button2.Location = new Point(525, 416);
+            button2.Location = new Point(1087, 419);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 3;
@@ -128,34 +65,118 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // dataGridNotas
+            // 
+            dataGridNotas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridNotas.Columns.AddRange(new DataGridViewColumn[] { numeroDgv, serieDgv, modeloDgv, chaveDgv });
+            dataGridNotas.Location = new Point(12, 12);
+            dataGridNotas.Name = "dataGridNotas";
+            dataGridNotas.ReadOnly = true;
+            dataGridNotas.RowTemplate.Height = 25;
+            dataGridNotas.Size = new Size(598, 225);
+            dataGridNotas.TabIndex = 4;
+            dataGridNotas.CellClick += dataGridNotas_CellClick;
+            // 
+            // numeroDgv
+            // 
+            numeroDgv.HeaderText = "Número";
+            numeroDgv.Name = "numeroDgv";
+            numeroDgv.ReadOnly = true;
+            numeroDgv.Width = 95;
+            // 
+            // serieDgv
+            // 
+            serieDgv.HeaderText = "Serie";
+            serieDgv.Name = "serieDgv";
+            serieDgv.ReadOnly = true;
+            // 
+            // modeloDgv
+            // 
+            modeloDgv.HeaderText = "Modelo";
+            modeloDgv.Name = "modeloDgv";
+            modeloDgv.ReadOnly = true;
+            // 
+            // chaveDgv
+            // 
+            chaveDgv.HeaderText = "Chave";
+            chaveDgv.Name = "chaveDgv";
+            chaveDgv.ReadOnly = true;
+            chaveDgv.Width = 260;
+            // 
+            // dataGridProdXML
+            // 
+            dataGridProdXML.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridProdXML.Columns.AddRange(new DataGridViewColumn[] { codigoDgvXML, descricaoDgvXML, ncmDgvXML, cstDgvXML, vlIcmsDgvXML });
+            dataGridProdXML.Location = new Point(12, 256);
+            dataGridProdXML.Name = "dataGridProdXML";
+            dataGridProdXML.ReadOnly = true;
+            dataGridProdXML.RowTemplate.Height = 25;
+            dataGridProdXML.Size = new Size(598, 264);
+            dataGridProdXML.TabIndex = 5;
+            // 
+            // codigoDgvXML
+            // 
+            codigoDgvXML.HeaderText = "Código";
+            codigoDgvXML.Name = "codigoDgvXML";
+            codigoDgvXML.ReadOnly = true;
+            codigoDgvXML.Width = 70;
+            // 
+            // descricaoDgvXML
+            // 
+            descricaoDgvXML.HeaderText = "Descrição";
+            descricaoDgvXML.Name = "descricaoDgvXML";
+            descricaoDgvXML.ReadOnly = true;
+            descricaoDgvXML.Width = 185;
+            // 
+            // ncmDgvXML
+            // 
+            ncmDgvXML.HeaderText = "NCM";
+            ncmDgvXML.Name = "ncmDgvXML";
+            ncmDgvXML.ReadOnly = true;
+            // 
+            // cstDgvXML
+            // 
+            cstDgvXML.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            cstDgvXML.HeaderText = "CST";
+            cstDgvXML.Name = "cstDgvXML";
+            cstDgvXML.ReadOnly = true;
+            // 
+            // vlIcmsDgvXML
+            // 
+            vlIcmsDgvXML.HeaderText = "Valor ICMS";
+            vlIcmsDgvXML.Name = "vlIcmsDgvXML";
+            vlIcmsDgvXML.ReadOnly = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(610, 451);
+            ClientSize = new Size(1174, 532);
+            Controls.Add(dataGridProdXML);
+            Controls.Add(dataGridNotas);
             Controls.Add(button2);
-            Controls.Add(listView2);
-            Controls.Add(listView1);
             Controls.Add(button1);
             Name = "Form1";
             Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)dataGridNotas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridProdXML).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Button button1;
-        private ListView listView1;
-        private ColumnHeader numero;
-        private ColumnHeader serie;
-        private ColumnHeader modelo;
-        private ColumnHeader chave;
-        private ListView listView2;
-        private ColumnHeader codprod;
-        private ColumnHeader descricao;
-        private ColumnHeader ncm;
-        private ColumnHeader vicms;
-        private ColumnHeader cst;
         private Button button2;
+        private DataGridView dataGridNotas;
+        private DataGridView dataGridProdXML;
+        private DataGridViewTextBoxColumn codigoDgvXML;
+        private DataGridViewTextBoxColumn descricaoDgvXML;
+        private DataGridViewTextBoxColumn ncmDgvXML;
+        private DataGridViewTextBoxColumn cstDgvXML;
+        private DataGridViewTextBoxColumn vlIcmsDgvXML;
+        private DataGridViewTextBoxColumn numeroDgv;
+        private DataGridViewTextBoxColumn serieDgv;
+        private DataGridViewTextBoxColumn modeloDgv;
+        private DataGridViewTextBoxColumn chaveDgv;
     }
 }

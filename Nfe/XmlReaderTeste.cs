@@ -12,6 +12,5 @@ namespace Nfe
         public int LSerie { get; set; }
         public int LModelo { get; set; }
         public string? LChave { get; set; }        
-
     }
 }
