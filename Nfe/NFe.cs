@@ -1206,7 +1206,7 @@ namespace Nfe
     {
 
         private nfeProcNFeInfNFeDetImpostoICMSICMS00 iCMS00Field;
-        
+
         private nfeProcNFeInfNFeDetImpostoICMSICMS10 iCMS10Field;
 
         private nfeProcNFeInfNFeDetImpostoICMSICMS00 iCMS40Field;
@@ -1262,7 +1262,6 @@ namespace Nfe
             }
         }
     }
-
     /// <remarks/>
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1270,11 +1269,11 @@ namespace Nfe
     public partial class nfeProcNFeInfNFeDetImpostoICMSICMS00
     {
 
-        private int origField;
+        private byte origField;
 
-        private int cSTField;
+        private byte cSTField;
 
-        private int modBCField;
+        private byte modBCField;
 
         private decimal vBCField;
 
@@ -1282,12 +1281,22 @@ namespace Nfe
 
         private decimal vICMSField;
 
-        private decimal pFCPField;
+        private byte modBCSTField;
 
-        private decimal vFCPField;
+        private decimal vBCSTField;
+
+        private decimal pICMSSTField;
+
+        private decimal vICMSSTField;
+
+        private decimal vBCFCPSTField;
+
+        private decimal pFCPSTField;
+
+        private decimal vFCPSTField;
 
         /// <remarks/>
-        public int orig
+        public byte orig
         {
             get
             {
@@ -1300,7 +1309,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public int CST
+        public byte CST
         {
             get
             {
@@ -1313,7 +1322,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public int modBC
+        public byte modBC
         {
             get
             {
@@ -1365,28 +1374,93 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public decimal pFCP
+        public byte modBCST
         {
             get
             {
-                return this.pFCPField;
+                return this.modBCSTField;
             }
             set
             {
-                this.pFCPField = value;
+                this.modBCSTField = value;
             }
         }
 
         /// <remarks/>
-        public decimal vFCP
+        public decimal vBCST
         {
             get
             {
-                return this.vFCPField;
+                return this.vBCSTField;
             }
             set
             {
-                this.vFCPField = value;
+                this.vBCSTField = value;
+            }
+        }
+
+        /// <remarks/>
+        public decimal pICMSST
+        {
+            get
+            {
+                return this.pICMSSTField;
+            }
+            set
+            {
+                this.pICMSSTField = value;
+            }
+        }
+
+        /// <remarks/>
+        public decimal vICMSST
+        {
+            get
+            {
+                return this.vICMSSTField;
+            }
+            set
+            {
+                this.vICMSSTField = value;
+            }
+        }
+
+        /// <remarks/>
+        public decimal vBCFCPST
+        {
+            get
+            {
+                return this.vBCFCPSTField;
+            }
+            set
+            {
+                this.vBCFCPSTField = value;
+            }
+        }
+
+        /// <remarks/>
+        public decimal pFCPST
+        {
+            get
+            {
+                return this.pFCPSTField;
+            }
+            set
+            {
+                this.pFCPSTField = value;
+            }
+        }
+
+        /// <remarks/>
+        public decimal vFCPST
+        {
+            get
+            {
+                return this.vFCPSTField;
+            }
+            set
+            {
+                this.vFCPSTField = value;
             }
         }
     }
@@ -1397,11 +1471,11 @@ namespace Nfe
     public partial class nfeProcNFeInfNFeDetImpostoICMSICMS10
     {
 
-        private int origField;
+        private byte origField;
 
-        private int cSTField;
+        private byte cSTField;
 
-        private int modBCField;
+        private byte modBCField;
 
         private decimal vBCField;
 
@@ -1409,12 +1483,22 @@ namespace Nfe
 
         private decimal vICMSField;
 
-        private decimal pFCPField;
+        private byte modBCSTField;
 
-        private decimal vFCPField;
+        private decimal vBCSTField;
+
+        private decimal pICMSSTField;
+
+        private decimal vICMSSTField;
+
+        private decimal vBCFCPSTField;
+
+        private decimal pFCPSTField;
+
+        private decimal vFCPSTField;
 
         /// <remarks/>
-        public int orig
+        public byte orig
         {
             get
             {
@@ -1427,7 +1511,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public int CST
+        public byte CST
         {
             get
             {
@@ -1440,7 +1524,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public int modBC
+        public byte modBC
         {
             get
             {
@@ -1492,28 +1576,93 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public decimal pFCP
+        public byte modBCST
         {
             get
             {
-                return this.pFCPField;
+                return this.modBCSTField;
             }
             set
             {
-                this.pFCPField = value;
+                this.modBCSTField = value;
             }
         }
 
         /// <remarks/>
-        public decimal vFCP
+        public decimal vBCST
         {
             get
             {
-                return this.vFCPField;
+                return this.vBCSTField;
             }
             set
             {
-                this.vFCPField = value;
+                this.vBCSTField = value;
+            }
+        }
+
+        /// <remarks/>
+        public decimal pICMSST
+        {
+            get
+            {
+                return this.pICMSSTField;
+            }
+            set
+            {
+                this.pICMSSTField = value;
+            }
+        }
+
+        /// <remarks/>
+        public decimal vICMSST
+        {
+            get
+            {
+                return this.vICMSSTField;
+            }
+            set
+            {
+                this.vICMSSTField = value;
+            }
+        }
+
+        /// <remarks/>
+        public decimal vBCFCPST
+        {
+            get
+            {
+                return this.vBCFCPSTField;
+            }
+            set
+            {
+                this.vBCFCPSTField = value;
+            }
+        }
+
+        /// <remarks/>
+        public decimal pFCPST
+        {
+            get
+            {
+                return this.pFCPSTField;
+            }
+            set
+            {
+                this.pFCPSTField = value;
+            }
+        }
+
+        /// <remarks/>
+        public decimal vFCPST
+        {
+            get
+            {
+                return this.vFCPSTField;
+            }
+            set
+            {
+                this.vFCPSTField = value;
             }
         }
     }
@@ -2842,5 +2991,5 @@ namespace Nfe
                 this.xMotivoField = value;
             }
         }
-    }   
+    }
 }

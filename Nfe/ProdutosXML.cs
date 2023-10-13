@@ -11,5 +11,6 @@ namespace Nfe
         public string? Ncm { get; set; }
         public string? Cst { get; set; }
         public decimal Valoricms { get; set; }
+        public decimal ValoricmsST { get; set; }
     }
 }

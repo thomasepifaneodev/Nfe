@@ -60,6 +60,7 @@ namespace Nfe
                     int Modelo = nota.NFe.infNFe.ide.mod;
                     // Variáveis para armazenar os valores de ICMS
                     decimal valorICMS = 0;
+                    decimal valorICMSST = 0;
                     int codCST = 90;
                     int ordemID = item.nItem;
                     string CodProd = item.prod.cProd;
@@ -70,11 +71,13 @@ namespace Nfe
                         {
                             valorICMS = item.imposto.ICMS.ICMS00.vICMS;
                             codCST = item.imposto.ICMS.ICMS00.CST;
+                            valorICMSST = item.imposto.ICMS.ICMS00.vICMSST;
                         }
                         else if (item.imposto.ICMS.ICMS10 != null)
                         {
                             valorICMS = item.imposto.ICMS.ICMS10.vICMS;
                             codCST = item.imposto.ICMS.ICMS10.CST;
+                            valorICMSST = item.imposto.ICMS.ICMS10.vICMSST;
                         }
                         else if (item.imposto.ICMS.ICMS40 != null)
                         {
@@ -88,8 +91,8 @@ namespace Nfe
                         string connection1 = $"Server=127.0.0.1; Port=5432; Database=testenfe; User Id=postgres; Password=postzeus2011";
                         connect.ConnectionString = connection1;
                         connect.Open();
-                        string sql1 = $"INSERT INTO public.nfexml(numero, serie, modelo, chave, codproduto, ordem, descricaoitem, ncm, cst, valortotal, valoricms) " +
-                            $"VALUES({Numero}, {Serie}, {Modelo}, '{Chave}', '{CodProd}', {ordemID}, '{Descricao}', '{NCM}', {codCST}, REPLACE('{valorTotal.ToString()}',',','.')::numeric, REPLACE('{valorICMS.ToString()}',',','.')::numeric);";
+                        string sql1 = $"INSERT INTO public.nfexml(numero, serie, modelo, chave, codproduto, ordem, descricaoitem, ncm, cst, valortotal, valoricms, valoricmsst) " +
+                            $"VALUES({Numero}, {Serie}, {Modelo}, '{Chave}', '{CodProd}', {ordemID}, '{Descricao}', '{NCM}', {codCST}, REPLACE('{valorTotal.ToString()}',',','.')::numeric, REPLACE('{valorICMS.ToString()}',',','.')::numeric, REPLACE('{valorICMSST.ToString()}',',','.')::numeric);";
                         NpgsqlCommand cmd1 = new NpgsqlCommand(sql1, connect);
                         cmd1.ExecuteNonQuery();
                         connect.Close();
@@ -146,7 +149,7 @@ namespace Nfe
                 connect.Open();
 
                 // Use a chaveSelecionada na consulta SQL
-                string sql = $"SELECT DISTINCT chave, ordem, codproduto, descricaoitem, ncm, cst, valoricms FROM nfexml WHERE chave = '{chaveSelecionada}' ORDER BY ordem;";
+                string sql = $"SELECT DISTINCT chave, ordem, codproduto, descricaoitem, ncm, cst, valoricms, valoricmsst FROM nfexml WHERE chave = '{chaveSelecionada}' ORDER BY ordem;";
                 NpgsqlCommand cmd = new NpgsqlCommand(sql, connect);
                 NpgsqlDataReader reader = cmd.ExecuteReader();
 
@@ -160,10 +163,11 @@ namespace Nfe
                         Descricaoitem = reader.GetString(3),
                         Ncm = reader.GetString(4),
                         Cst = reader.GetInt32(5).ToString(),
-                        Valoricms = reader.GetDecimal(6)
+                        Valoricms = reader.GetDecimal(6),
+                        ValoricmsST = reader.GetDecimal(7)
                     };
                     xmlReaderProds.Add(xmlReaderProd);
-                    dataGridProdXML.Rows.Add(xmlReaderProd.Codproduto, xmlReaderProd.Descricaoitem, xmlReaderProd.Ncm, xmlReaderProd.Cst, xmlReaderProd.Valoricms);
+                    dataGridProdXML.Rows.Add(xmlReaderProd.Codproduto, xmlReaderProd.Descricaoitem, xmlReaderProd.Ncm, xmlReaderProd.Cst, xmlReaderProd.Valoricms, xmlReaderProd.ValoricmsST);
                 }
 
                 reader.Close();
