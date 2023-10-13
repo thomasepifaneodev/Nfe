@@ -36,18 +36,18 @@
             modeloDgv = new DataGridViewTextBoxColumn();
             chaveDgv = new DataGridViewTextBoxColumn();
             dataGridProdXML = new DataGridView();
-            dataGridView1 = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
             codigoDgvXML = new DataGridViewTextBoxColumn();
             descricaoDgvXML = new DataGridViewTextBoxColumn();
             ncmDgvXML = new DataGridViewTextBoxColumn();
             cstDgvXML = new DataGridViewTextBoxColumn();
             vlIcmsDgvXML = new DataGridViewTextBoxColumn();
             vlIcmsstDgvXML = new DataGridViewTextBoxColumn();
+            dataGridView1 = new DataGridView();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridNotas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridProdXML).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -55,7 +55,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(1605, 861);
+            button1.Location = new Point(1138, 589);
             button1.Name = "button1";
             button1.Size = new Size(90, 23);
             button1.TabIndex = 0;
@@ -65,7 +65,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(1701, 861);
+            button2.Location = new Point(1234, 589);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 3;
@@ -81,7 +81,7 @@
             dataGridNotas.Name = "dataGridNotas";
             dataGridNotas.ReadOnly = true;
             dataGridNotas.RowTemplate.Height = 25;
-            dataGridNotas.Size = new Size(1389, 190);
+            dataGridNotas.Size = new Size(1110, 190);
             dataGridNotas.TabIndex = 4;
             dataGridNotas.CellClick += dataGridNotas_CellClick;
             // 
@@ -121,52 +121,8 @@
             dataGridProdXML.Name = "dataGridProdXML";
             dataGridProdXML.ReadOnly = true;
             dataGridProdXML.RowTemplate.Height = 25;
-            dataGridProdXML.Size = new Size(1389, 335);
+            dataGridProdXML.Size = new Size(1110, 212);
             dataGridProdXML.TabIndex = 5;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
-            dataGridView1.Location = new Point(12, 549);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1389, 335);
-            dataGridView1.TabIndex = 6;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.HeaderText = "Código";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
-            dataGridViewTextBoxColumn1.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.HeaderText = "Descrição";
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.ReadOnly = true;
-            dataGridViewTextBoxColumn2.Width = 185;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.HeaderText = "NCM";
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            dataGridViewTextBoxColumn4.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dataGridViewTextBoxColumn4.HeaderText = "CST";
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            dataGridViewTextBoxColumn5.HeaderText = "Valor ICMS";
-            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // codigoDgvXML
             // 
@@ -207,18 +163,62 @@
             vlIcmsstDgvXML.Name = "vlIcmsstDgvXML";
             vlIcmsstDgvXML.ReadOnly = true;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
+            dataGridView1.Location = new Point(12, 442);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(1110, 170);
+            dataGridView1.TabIndex = 6;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.HeaderText = "Código";
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
+            dataGridViewTextBoxColumn1.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.HeaderText = "Descrição";
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
+            dataGridViewTextBoxColumn2.Width = 185;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewTextBoxColumn3.HeaderText = "NCM";
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            dataGridViewTextBoxColumn4.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dataGridViewTextBoxColumn4.HeaderText = "CST";
+            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            dataGridViewTextBoxColumn5.HeaderText = "Valor ICMS";
+            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1788, 896);
+            ClientSize = new Size(1337, 633);
             Controls.Add(dataGridView1);
             Controls.Add(dataGridProdXML);
             Controls.Add(dataGridNotas);
             Controls.Add(button2);
             Controls.Add(button1);
-            MinimumSize = new Size(1280, 720);
+            MinimumSize = new Size(720, 480);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
