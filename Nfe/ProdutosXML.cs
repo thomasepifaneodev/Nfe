@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Nfe
+﻿namespace Nfe
 {
     public class ProdutosXML
     {
@@ -9,8 +7,12 @@ namespace Nfe
         public string? Codproduto { get; set; }
         public string? Descricaoitem { get; set; }
         public string? Ncm { get; set; }
+        public int Cfop { get; set; }
+        public int CestCodigo { get; set; }
         public string? Cst { get; set; }
-        public decimal Valoricms { get; set; }
-        public decimal ValoricmsST { get; set; }
+        public decimal ValorTotalProd { get; set; }
+        public decimal Aliq { get; set; }
+        public decimal ValorIcms { get; set; }
+        public decimal ValorIcmsST { get; set; }        
     }
 }

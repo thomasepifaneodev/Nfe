@@ -39,9 +39,13 @@
             codigoDgvXML = new DataGridViewTextBoxColumn();
             descricaoDgvXML = new DataGridViewTextBoxColumn();
             ncmDgvXML = new DataGridViewTextBoxColumn();
+            cfopDgv = new DataGridViewTextBoxColumn();
             cstDgvXML = new DataGridViewTextBoxColumn();
+            vlTotalProd = new DataGridViewTextBoxColumn();
+            aliquotaDgv = new DataGridViewTextBoxColumn();
             vlIcmsDgvXML = new DataGridViewTextBoxColumn();
             vlIcmsstDgvXML = new DataGridViewTextBoxColumn();
+            cestCodigo = new DataGridViewTextBoxColumn();
             dataGridView1 = new DataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
@@ -81,7 +85,7 @@
             dataGridNotas.Name = "dataGridNotas";
             dataGridNotas.ReadOnly = true;
             dataGridNotas.RowTemplate.Height = 25;
-            dataGridNotas.Size = new Size(1110, 190);
+            dataGridNotas.Size = new Size(1099, 190);
             dataGridNotas.TabIndex = 4;
             dataGridNotas.CellClick += dataGridNotas_CellClick;
             // 
@@ -116,12 +120,12 @@
             // dataGridProdXML
             // 
             dataGridProdXML.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridProdXML.Columns.AddRange(new DataGridViewColumn[] { codigoDgvXML, descricaoDgvXML, ncmDgvXML, cstDgvXML, vlIcmsDgvXML, vlIcmsstDgvXML });
+            dataGridProdXML.Columns.AddRange(new DataGridViewColumn[] { codigoDgvXML, descricaoDgvXML, ncmDgvXML, cfopDgv, cstDgvXML, vlTotalProd, aliquotaDgv, vlIcmsDgvXML, vlIcmsstDgvXML, cestCodigo });
             dataGridProdXML.Location = new Point(12, 210);
             dataGridProdXML.Name = "dataGridProdXML";
             dataGridProdXML.ReadOnly = true;
             dataGridProdXML.RowTemplate.Height = 25;
-            dataGridProdXML.Size = new Size(1110, 233);
+            dataGridProdXML.Size = new Size(1099, 233);
             dataGridProdXML.TabIndex = 5;
             // 
             // codigoDgvXML
@@ -144,12 +148,30 @@
             ncmDgvXML.Name = "ncmDgvXML";
             ncmDgvXML.ReadOnly = true;
             // 
+            // cfopDgv
+            // 
+            cfopDgv.HeaderText = "CFOP";
+            cfopDgv.Name = "cfopDgv";
+            cfopDgv.ReadOnly = true;
+            // 
             // cstDgvXML
             // 
             cstDgvXML.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             cstDgvXML.HeaderText = "CST";
             cstDgvXML.Name = "cstDgvXML";
             cstDgvXML.ReadOnly = true;
+            // 
+            // vlTotalProd
+            // 
+            vlTotalProd.HeaderText = "Valor Total";
+            vlTotalProd.Name = "vlTotalProd";
+            vlTotalProd.ReadOnly = true;
+            // 
+            // aliquotaDgv
+            // 
+            aliquotaDgv.HeaderText = "Alíquota";
+            aliquotaDgv.Name = "aliquotaDgv";
+            aliquotaDgv.ReadOnly = true;
             // 
             // vlIcmsDgvXML
             // 
@@ -163,6 +185,12 @@
             vlIcmsstDgvXML.Name = "vlIcmsstDgvXML";
             vlIcmsstDgvXML.ReadOnly = true;
             // 
+            // cestCodigo
+            // 
+            cestCodigo.HeaderText = "CEST";
+            cestCodigo.Name = "cestCodigo";
+            cestCodigo.ReadOnly = true;
+            // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -171,7 +199,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1110, 233);
+            dataGridView1.Size = new Size(1099, 233);
             dataGridView1.TabIndex = 6;
             // 
             // dataGridViewTextBoxColumn1
@@ -221,7 +249,6 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
-            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)dataGridNotas).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridProdXML).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -247,8 +274,12 @@
         private DataGridViewTextBoxColumn codigoDgvXML;
         private DataGridViewTextBoxColumn descricaoDgvXML;
         private DataGridViewTextBoxColumn ncmDgvXML;
+        private DataGridViewTextBoxColumn cfopDgv;
         private DataGridViewTextBoxColumn cstDgvXML;
+        private DataGridViewTextBoxColumn vlTotalProd;
+        private DataGridViewTextBoxColumn aliquotaDgv;
         private DataGridViewTextBoxColumn vlIcmsDgvXML;
         private DataGridViewTextBoxColumn vlIcmsstDgvXML;
+        private DataGridViewTextBoxColumn cestCodigo;
     }
 }
