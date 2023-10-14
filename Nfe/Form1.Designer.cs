@@ -55,7 +55,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(1138, 589);
+            button1.Location = new Point(1138, 659);
             button1.Name = "button1";
             button1.Size = new Size(90, 23);
             button1.TabIndex = 0;
@@ -65,7 +65,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(1234, 589);
+            button2.Location = new Point(1234, 659);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 3;
@@ -77,7 +77,7 @@
             // 
             dataGridNotas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridNotas.Columns.AddRange(new DataGridViewColumn[] { numeroDgv, serieDgv, modeloDgv, chaveDgv });
-            dataGridNotas.Location = new Point(12, 12);
+            dataGridNotas.Location = new Point(12, 14);
             dataGridNotas.Name = "dataGridNotas";
             dataGridNotas.ReadOnly = true;
             dataGridNotas.RowTemplate.Height = 25;
@@ -117,11 +117,11 @@
             // 
             dataGridProdXML.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridProdXML.Columns.AddRange(new DataGridViewColumn[] { codigoDgvXML, descricaoDgvXML, ncmDgvXML, cstDgvXML, vlIcmsDgvXML, vlIcmsstDgvXML });
-            dataGridProdXML.Location = new Point(12, 208);
+            dataGridProdXML.Location = new Point(12, 210);
             dataGridProdXML.Name = "dataGridProdXML";
             dataGridProdXML.ReadOnly = true;
             dataGridProdXML.RowTemplate.Height = 25;
-            dataGridProdXML.Size = new Size(1110, 212);
+            dataGridProdXML.Size = new Size(1110, 233);
             dataGridProdXML.TabIndex = 5;
             // 
             // codigoDgvXML
@@ -167,11 +167,11 @@
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
-            dataGridView1.Location = new Point(12, 442);
+            dataGridView1.Location = new Point(12, 449);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1110, 170);
+            dataGridView1.Size = new Size(1110, 233);
             dataGridView1.TabIndex = 6;
             // 
             // dataGridViewTextBoxColumn1
@@ -211,8 +211,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoSize = true;
-            ClientSize = new Size(1337, 633);
+            ClientSize = new Size(1350, 729);
             Controls.Add(dataGridView1);
             Controls.Add(dataGridProdXML);
             Controls.Add(dataGridNotas);

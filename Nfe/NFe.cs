@@ -1269,11 +1269,11 @@ namespace Nfe
     public partial class nfeProcNFeInfNFeDetImpostoICMSICMS00
     {
 
-        private byte origField;
+        private int origField;
 
-        private byte cSTField;
+        private int cSTField;
 
-        private byte modBCField;
+        private int modBCField;
 
         private decimal vBCField;
 
@@ -1281,7 +1281,7 @@ namespace Nfe
 
         private decimal vICMSField;
 
-        private byte modBCSTField;
+        private int modBCSTField;
 
         private decimal vBCSTField;
 
@@ -1296,7 +1296,7 @@ namespace Nfe
         private decimal vFCPSTField;
 
         /// <remarks/>
-        public byte orig
+        public int orig
         {
             get
             {
@@ -1309,7 +1309,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte CST
+        public int CST
         {
             get
             {
@@ -1322,7 +1322,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte modBC
+        public int modBC
         {
             get
             {
@@ -1374,7 +1374,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte modBCST
+        public int modBCST
         {
             get
             {
@@ -1471,11 +1471,11 @@ namespace Nfe
     public partial class nfeProcNFeInfNFeDetImpostoICMSICMS10
     {
 
-        private byte origField;
+        private int origField;
 
-        private byte cSTField;
+        private int cSTField;
 
-        private byte modBCField;
+        private int modBCField;
 
         private decimal vBCField;
 
@@ -1483,7 +1483,7 @@ namespace Nfe
 
         private decimal vICMSField;
 
-        private byte modBCSTField;
+        private int modBCSTField;
 
         private decimal vBCSTField;
 
@@ -1498,7 +1498,7 @@ namespace Nfe
         private decimal vFCPSTField;
 
         /// <remarks/>
-        public byte orig
+        public int orig
         {
             get
             {
@@ -1511,7 +1511,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte CST
+        public int CST
         {
             get
             {
@@ -1524,7 +1524,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte modBC
+        public int modBC
         {
             get
             {
@@ -1576,7 +1576,7 @@ namespace Nfe
         }
 
         /// <remarks/>
-        public byte modBCST
+        public int modBCST
         {
             get
             {

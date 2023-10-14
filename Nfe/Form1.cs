@@ -51,48 +51,80 @@ namespace Nfe
                 nfeProc nota = (nfeProc)ser.Deserialize(reader);
                 foreach (var item in nota.NFe.infNFe.det)
                 {
-                    string Descricao = item.prod.xProd; // Acessar a descrição do produto (exemplo)
-                    decimal valorTotal = item.prod.vProd; // Acessar o valor total do item (exemplo)
+                    //Informações ITENS(Dados cadastrais)
+                    string CodProd = item.prod.cProd;
+                    string Descricao = item.prod.xProd;
                     string NCM = item.prod.NCM;
+                    uint cestCodigo = item.prod.CEST;
+                    int ordemID = item.nItem;
+                    
+
+                    //Informações Nota(Dados fiscais)
                     string Chave = nota.protNFe.infProt.chNFe.ToString();
+                    string Fornecedor = nota.NFe.infNFe.emit.xNome;
                     int Numero = nota.NFe.infNFe.ide.nNF;
                     int Serie = nota.NFe.infNFe.ide.serie;
                     int Modelo = nota.NFe.infNFe.ide.mod;
-                    // Variáveis para armazenar os valores de ICMS
+                    int Cfop = 0000;
+                    DateTime dataEmissao = nota.NFe.infNFe.ide.dhEmi;
+                    string UF = nota.NFe.infNFe.emit.enderEmit.UF;
+
+                    //Informações ITENS(Dados ICMS)
+                    decimal valorTotalItem = item.prod.vProd;
+                    decimal valorBCItem = 0;
+                    decimal aliquotaIcms = 0;
                     decimal valorICMS = 0;
                     decimal valorICMSST = 0;
-                    int codCST = 90;
-                    int ordemID = item.nItem;
-                    string CodProd = item.prod.cProd;
+                    int codCST = 90;                    
+
+                    //Informações Nota(Totais)
+                    decimal valorTotalNota = nota.NFe.infNFe.total.ICMSTot.vNF;
+                    decimal valorTotalIcms = nota.NFe.infNFe.total.ICMSTot.vICMS;
+                    decimal valorTotalBase = nota.NFe.infNFe.total.ICMSTot.vBC;
+                    decimal valorTotalBaseST = nota.NFe.infNFe.total.ICMSTot.vBCST;
+                    decimal valorTotalIPI = nota.NFe.infNFe.total.ICMSTot.vIPI;
+
                     // Verificar se o ICMS está presente e acessar o valor
                     if (item.imposto.ICMS != null)
                     {
                         if (item.imposto.ICMS.ICMS00 != null)
                         {
+                            Cfop = item.prod.CFOP;
                             valorICMS = item.imposto.ICMS.ICMS00.vICMS;
                             codCST = item.imposto.ICMS.ICMS00.CST;
                             valorICMSST = item.imposto.ICMS.ICMS00.vICMSST;
+                            valorBCItem = item.imposto.ICMS.ICMS00.vBC;
+                            aliquotaIcms = item.imposto.ICMS.ICMS00.pICMS;
                         }
                         else if (item.imposto.ICMS.ICMS10 != null)
                         {
+                            Cfop = item.prod.CFOP;
                             valorICMS = item.imposto.ICMS.ICMS10.vICMS;
                             codCST = item.imposto.ICMS.ICMS10.CST;
                             valorICMSST = item.imposto.ICMS.ICMS10.vICMSST;
+                            valorBCItem = item.imposto.ICMS.ICMS10.vBC;
+                            aliquotaIcms = item.imposto.ICMS.ICMS10.pICMS;
                         }
                         else if (item.imposto.ICMS.ICMS40 != null)
                         {
+                            Cfop = item.prod.CFOP;
                             codCST = item.imposto.ICMS.ICMS40.CST;
+                            valorBCItem = item.imposto.ICMS.ICMS40.vBC;
+                            aliquotaIcms = item.imposto.ICMS.ICMS40.pICMS;
                         }
                         else if (item.imposto.ICMS.ICMS60 != null)
                         {
+                            Cfop = item.prod.CFOP;
                             codCST = item.imposto.ICMS.ICMS60.CST;
+                            
                         }
+
                         NpgsqlConnection connect = new NpgsqlConnection();
                         string connection1 = $"Server=127.0.0.1; Port=5432; Database=testenfe; User Id=postgres; Password=postzeus2011";
                         connect.ConnectionString = connection1;
                         connect.Open();
-                        string sql1 = $"INSERT INTO public.nfexml(numero, serie, modelo, chave, codproduto, ordem, descricaoitem, ncm, cst, valortotal, valoricms, valoricmsst) " +
-                            $"VALUES({Numero}, {Serie}, {Modelo}, '{Chave}', '{CodProd}', {ordemID}, '{Descricao}', '{NCM}', {codCST}, REPLACE('{valorTotal.ToString()}',',','.')::numeric, REPLACE('{valorICMS.ToString()}',',','.')::numeric, REPLACE('{valorICMSST.ToString()}',',','.')::numeric);";
+                        string sql1 = $"INSERT INTO public.nfexml(numero, serie, modelo, chave, codproduto, ordem, descricaoitem, ncm, cst, valortotalprod, valoricms, valoricmsst) " +
+                        $"VALUES({Numero}, {Serie}, {Modelo}, '{Chave}', '{CodProd}', {ordemID}, '{Descricao}', '{NCM}', {codCST}, REPLACE('{valorTotalItem.ToString()}',',','.')::numeric, REPLACE('{valorICMS.ToString()}',',','.')::numeric, REPLACE('{valorICMSST.ToString()}',',','.')::numeric);";
                         NpgsqlCommand cmd1 = new NpgsqlCommand(sql1, connect);
                         cmd1.ExecuteNonQuery();
                         connect.Close();
@@ -101,7 +133,7 @@ namespace Nfe
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro na desserialização do XML: " + ex.Message);
+                MessageBox.Show(ex.ToString());
             }
         }
         private void ExecutarNotas()
@@ -162,7 +194,7 @@ namespace Nfe
                         Codproduto = reader.GetString(2),
                         Descricaoitem = reader.GetString(3),
                         Ncm = reader.GetString(4),
-                        Cst = reader.GetInt32(5).ToString(),
+                        Cst = reader.GetString(5),
                         Valoricms = reader.GetDecimal(6),
                         ValoricmsST = reader.GetDecimal(7)
                     };
